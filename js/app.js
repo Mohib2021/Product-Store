@@ -11,7 +11,6 @@ const showProducts = (products) => {
 	const allProducts = products.map((pd) => pd);
 	for (const product of allProducts) {
 		const image = product.image;
-		console.log(product);
 		const div = document.createElement("div");
 		div.classList.add("product");
 		div.classList.add("col-md-4");
@@ -21,14 +20,13 @@ const showProducts = (products) => {
         <div class="text-center">
           <img class="product-image" src=${image}></img>
         </div>
-        <div class="my-3">
-        <h3>${product.title}</h3>
+        <div class="my-2">
+        <h4>${product.title}</h4>
           <p>Category: ${product.category}</p>
-          <h2>Price: $ ${product.price}</h2>
+          <h4 class="mt-2">Price: $ ${product.price}</h4>
+          <h6 class="my-3"> <i class="fas fa-star"></i> ${product.rating.rate} || <i class="text-success fas fa-users"></i> ${product.rating.count} </h6>
           <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn"class="buy-now btn btn-outline-dark">add to cart</button>
-          <button id="details-btn" class="btn btn-outline-dark">Details</button>
-        </div>
-    </div>
+          <button onclick=showingDetails(${product.id})  id="details-btn" class="btn btn-outline-dark" >Details</button>
       `;
 
 		document.getElementById("all-products").appendChild(div);
@@ -46,7 +44,7 @@ const addToCart = (id, price) => {
 
 const getInputValue = (id) => {
 	const element = document.getElementById(id).innerText;
-	console.log(element);
+
 	const converted = parseFloat(element);
 	return converted;
 };
@@ -88,4 +86,23 @@ const updateTotal = () => {
 		getInputValue("delivery-charge") +
 		getInputValue("total-tax");
 	document.getElementById("total").innerText = grandTotal.toFixed(2);
+};
+
+const showingDetails = async (id) => {
+	const res = await fetch(`https://fakestoreapi.com/products/${id}`);
+	const data = await res.json();
+	showData(data);
+};
+const showData = (data) => {
+	const displayData = document.getElementById("display-details");
+	displayData.innerHTML = "";
+	displayData.innerHTML = `
+
+  <div id="description" class="text-white w-25 p-3">
+        <h4> Category : ${data.category.toUpperCase()} </h4>
+        <h5> Title : ${data.title.toUpperCase()} </h5>
+        <p> Description : ${data.description} </p>
+  </div>
+
+`;
 };

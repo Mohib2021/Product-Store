@@ -11,11 +11,18 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Shopping</title>
 		<link rel="stylesheet" href="./css/style.css" />
-		<!-- Latest compiled and minified CSS -->
+		<!-- Latest bootstrap CSS -->
 		<link
 			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
 			rel="stylesheet"
 			integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+			crossorigin="anonymous"
+		/>
+		<!-- font awesome cdn -->
+		<link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+			integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
 			crossorigin="anonymous"
 		/>
 
@@ -31,6 +38,7 @@
 	<body class="bg-dark">
 		<div class="container-fluid">
 			<main class="main">
+				<!-- input field and search button starts here -->
 				<div class="search-field my-5">
 					<div class="search-box">
 						<div class="input-group mb-3">
@@ -38,7 +46,7 @@
 								type="text"
 								class="form-control"
 								placeholder="Input Item"
-								aria-label="Recipient's username"
+								aria-label="item"
 								aria-describedby="button-addon2"
 							/>
 							<button
@@ -51,6 +59,9 @@
 						</div>
 					</div>
 				</div>
+				<!-- input field and search button ends here -->
+				<!-- showing details part starts here -->
+				<div id="display-details"></div>
 				<div class="row">
 					<div class="col-md-9 col-lg-9 mb-3 col-sm-7">
 						<div id="all-products" class="row g-4"></div>
@@ -59,7 +70,7 @@
 						<div class="cart bg-light text-black" id="my-cart">
 							<table class="table">
 								<thead>
-									<h1 class="text-center">My-Cart</h1>
+									<h2 class="text-center">My-Cart</h2>
 									<tr>
 										<th scope="col"></th>
 										<th scope="col"></th>

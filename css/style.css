@@ -23,6 +23,10 @@ body {
 	width: 50%;
 	height: 200px;
 }
+.fa-star {
+	color: goldenrod;
+}
+
 .cart {
 	width: 350px;
 	/* border: 1px solid green; */
