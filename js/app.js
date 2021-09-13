@@ -53,7 +53,6 @@ const showProducts = (products) => {
 		        </div>
 		</div>
       `;
-
 		parentOfAllProducts.appendChild(div);
 	}
 };
@@ -63,7 +62,6 @@ let count = 0;
 const addToCart = (id, price) => {
 	count = count + 1;
 	updatePrice("price", price);
-
 	updateTaxAndCharge();
 	updateTotal();
 	document.getElementById("total-Products").innerText = count;
@@ -123,15 +121,12 @@ const showingDetails = async (id) => {
 };
 const showData = (data) => {
 	console.log(data);
-
 	displayDetails.innerHTML = "";
 	displayDetails.innerHTML = `
-
-  <div id="description" class="text-black bg-light m-auto mb-5 p-3">
+  	<div id="description" class="text-black bg-light m-auto mb-5 p-3">
         <h4> <b>CATEGORY :</b>  ${data.category.toUpperCase()} </h4>
         <h5> <b> TITLE : </b> ${data.title} </h5>
         <p> <b>DESCRIPTION : </b> ${data.description} </p>
-  </div>
-
+  	</div>
 `;
 };
